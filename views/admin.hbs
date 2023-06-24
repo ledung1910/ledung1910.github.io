@@ -1,0 +1,41 @@
+<div class="container text-center col-md-9 mt-3 mb-3 bg-light">
+   <table class="table table-bordered">
+      <tr>
+         <th colspan="5">
+            <h1 class="text text-secondary">TOY LIST</h1>
+         <th>
+            <a class="btn btn-primary" href="/add">Add</a>
+            <a class="btn btn-secondary" href="/deleteall">Delete All</a>
+         </th>
+         </th>
+      </tr>
+      <tr>
+         <th  class="text text-success h5">Toy Name</th>
+         <th  class="text text-success h5">Category</th>
+         <th  class="text text-success h5">Price</th>
+         <th  class="text text-success h5">Quantity</th>
+         <th  class="text text-success h5">Image</th>
+         <th  class="text text-success h5">Actions</th>
+      </tr>
+      {{#each toys }}
+      <tr>
+         <td>{{ name }}</td>
+         <td>{{ category }}</td>
+         <td>${{ price }}</td>
+         <td>{{ quantity }}</td>
+         <td>
+            <a href="/detail/{{ _id }}">
+               <img src="{{ image }}" width="100" height="120">
+            </a>
+         
+         </td>
+         <td>
+            <a class="btn btn-warning" href="/edit/{{_id}}">Edit</a>
+            <a class="btn btn-danger" href="/delete/{{_id}}"
+            onclick="return confirm('Are you sure to delete this book ?');"
+            >Delete</a>
+         </td>
+      </tr>
+      {{/each}}
+   </table>
+</div>

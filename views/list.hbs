@@ -1,0 +1,20 @@
+<div class="card-group text-center">
+   <div class="row">
+      {{#each toys }}
+      <div class="card col-md-2 m-3 mx">
+         <img class="card-img-top mt-3" src="{{ image }}">
+         <div class="card-body">
+            <h4 class="card-title">{{ name }}</h4>
+            <h3 class="card-price">${{ price }}</h3>
+            <p class="card-category">{{ category }}</p>
+            <form class="order-form" action="/order" method="post">
+               <input type="hidden" name="id" value="{{_id}}">
+               <input type="hidden" name="price" value="{{price}}">
+               <input class="order-quantity" type="number" name="order_quantity" min="1" max="{{quantity}}">
+               <input class="order-button" type="submit" value="Order">
+            </form>
+         </div>
+      </div>
+      {{/each}}
+   </div>
+</div>
